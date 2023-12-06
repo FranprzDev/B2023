@@ -1,0 +1,12 @@
+### List all courses - OK
+GET http://localhost:3000/api/courses
+
+
+### Create course - OK
+POST http://localhost:3000/api/courses
+Content-Type: application/json
+
+{
+    "name": "Backend Advance",
+    "price": 100000.99
+}
