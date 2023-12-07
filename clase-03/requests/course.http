@@ -7,8 +7,9 @@ POST http://localhost:3000/api/courses
 Content-Type: application/json
 
 {
-    "name": "Backend Advance",
-    "price": 100000.99
+    "name": "Curso de prueba",
+    "price": "hola",
+    "description": "This is a course about React"
 }
 
 ### Find course by id - OK
