@@ -1,2 +1,11 @@
-### Get all students
-http://localhost:3000/api/students
+### Get all students - OK
+GET http://localhost:3000/api/students
+
+### Create Student - OK
+POST http://localhost:3000/api/students
+Content-Type: application/json
+
+{
+    "firstName": "Juan Jose",
+    "lastName": "Puente Scapolatempo"
+}
