@@ -1,7 +1,7 @@
 const courseRouter = require('express').Router()
 const { getAllCourses, createCourse, getCourseById, patchCourseById, deleteCourseById } = require('../controllers/course.controllers')
-const { errorMiddleware } = require('../middlewares/common.middleware')
-const { validateMongoId, validateCourseData } = require('../middlewares/course.middlewares')
+const { errorMiddleware, validateMongoId } = require('../middlewares/common.middleware')
+const { validateCourseData } = require('../middlewares/course.middlewares')
 
 courseRouter.get('/', getAllCourses, errorMiddleware)
 

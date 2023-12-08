@@ -1,10 +1,5 @@
-const { param, body } = require('express-validator')
+const { body } = require('express-validator')
 const { requestValidation } = require('./common.middleware')
-
-const validateMongoId = [
-    param('id').isMongoId().withMessage('Id must be a Mongo ID'),
-    requestValidation,
-]
 
 const validateCourseData = [
     body('name').notEmpty().withMessage('Name is required'),
@@ -15,6 +10,5 @@ const validateCourseData = [
 ]
 
 module.exports = {
-    validateMongoId,
     validateCourseData
 }

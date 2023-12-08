@@ -1,4 +1,4 @@
-const { validationResult } = require('express-validator')
+const { validationResult, param } = require('express-validator')
 
 const requestValidation = (req, res, next) => {
     const result = validationResult(req)
@@ -14,7 +14,13 @@ const errorMiddleware = (err, req, res, next) => {
     res.json({ message: 'Internal server error' })
 }
 
+const validateMongoId = [
+    param('id').isMongoId().withMessage('Id must be a Mongo ID'),
+    requestValidation,
+]
+
 module.exports = {
     requestValidation,
-    errorMiddleware
+    errorMiddleware,
+    validateMongoId
 }
