@@ -8,7 +8,7 @@ const app = express()
 app.use(express.json())
 
 app.use('/api/courses', courseRouter)
-app.use('/api/studentes', studentRouter)
+app.use('/api/students', studentRouter)
 
 // app.get('/middle',
 //     (req, res, next) => {

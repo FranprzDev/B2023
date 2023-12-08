@@ -1,11 +1,8 @@
-const Student = require('../models/Student')
+const { getAllStudents } = require('../controllers/student.controllers')
+const { errorMiddleware } = require('../middlewares/common.middleware')
 
 const studentRouter = require('express').Router()
 
-studentRouter.get('/', async (req, res) => {
-    const courses = await Student.find({})
-
-    res.json(courses)
-})
+studentRouter.get('/', getAllStudents, errorMiddleware)
 
 module.exports = studentRouter
