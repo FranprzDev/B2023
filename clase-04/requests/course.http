@@ -1,0 +1,27 @@
+### List all courses - OK
+GET http://localhost:3000/api/courses
+
+
+### Create course - OK
+POST http://localhost:3000/api/courses
+Content-Type: application/json
+
+{
+    "description": "This is a course about React"
+}
+
+### Find course by id - OK
+GET http://localhost:3000/api/courses/65778ba5c9c3058cd5fc09fa
+
+### Update course by id - OK
+PATCH http://localhost:3000/api/courses/6570e3a1199380156ea0fc2c
+Content-Type: application/json
+
+{
+    "price": 110002,
+    "desc": true,
+    "description": "This is a simple description"
+}
+
+### Delete course by id - OK
+DELETE http://localhost:3000/api/courses/65778ba5c9c3058cd5fc09fa
