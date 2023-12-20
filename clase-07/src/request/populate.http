@@ -1,0 +1,30 @@
+### Create authors - POST
+POST http://localhost:8080/api/situations/populate/create-author
+Content-Type: application/json
+
+{
+    "firstName": "JK",
+    "lastName": "Rowling"
+}
+
+### Create Books - POST
+POST http://localhost:8080/api/situations/populate/create-book
+Content-Type: application/json
+
+{
+    "name": "Harry Potter",
+    "description": "Uno de los 8 libros",
+    "authorId": "65832104f9242b7422fbd944"
+}
+
+### Find books - All - GET
+GET http://localhost:8080/api/situations/populate/find-books
+
+### Find books - All - AuthorData - GET
+GET http://localhost:8080/api/situations/populate/find-books?withAuthorData=YES
+
+### Find books - By Book Id - GET
+GET http://localhost:8080/api/situations/populate/find-books?bookId=658320c7f9242b7422fbd942
+
+### Find books - By Book Id - AuthorData - GET
+GET http://localhost:8080/api/situations/populate/find-books?bookId=658320c7f9242b7422fbd942&withAuthorData=YES
