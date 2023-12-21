@@ -1,0 +1,43 @@
+### Create product - OK - POST
+POST http://localhost:8080/api/situations/transactions/create-product
+Content-Type: application/json
+
+{
+    "name": "IPhone XXV"
+}
+
+### Find products - OK - GET
+GET http://localhost:8080/api/situations/transactions/find-products
+Content-Type: application/json
+
+{
+    "name": "IPhone XXVII"
+}
+
+### Make Product Available - OK - PATCH
+PATCH http://localhost:8080/api/situations/transactions/make-product-available
+Content-Type: application/json
+
+{
+    "productId": "658373829cab0b4a6b73647d",
+    "available": true
+}
+
+### Patch Product (price or stock or name) - OK - PATCH
+PATCH http://localhost:8080/api/situations/transactions/patch-product
+Content-Type: application/json
+
+{
+    "productId": "658373829cab0b4a6b73647d",
+    "price": 2000000
+}
+
+### Prepare Order - OK - PATCH
+POST http://localhost:8080/api/situations/transactions/prepare-order
+Content-Type: application/json
+
+{
+    "customerId": "658370222a1994278d48a49b",
+    "productId": "658373829cab0b4a6b73647d",
+    "quantity": 50
+}

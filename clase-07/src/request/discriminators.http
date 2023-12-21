@@ -1,0 +1,22 @@
+### Create Staff - POST
+POST http://localhost:8080/api/situations/discriminators/create-staff
+Content-Type: application/json
+
+{
+    "username": "josescap",
+    "employeeId": "L1236556"
+}
+
+### Get Staff - All - GET
+GET http://localhost:8080/api/situations/discriminators/find-staff
+
+### Get Staff - By EmployeeId - GET
+GET http://localhost:8080/api/situations/discriminators/find-staff?employeeId=L1245896
+
+### Create Customer - POST
+POST http://localhost:8080/api/situations/discriminators/create-customer
+Content-Type: application/json
+
+{
+    "username": "josescap_customer"
+}
