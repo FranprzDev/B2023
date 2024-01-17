@@ -32,12 +32,41 @@ Content-Type: application/json
     "price": 2000000
 }
 
-### Prepare Order - OK - PATCH
+### Prepare Order - OK - POST
 POST http://localhost:8080/api/situations/transactions/prepare-order
 Content-Type: application/json
 
 {
     "customerId": "658370222a1994278d48a49b",
+    "productId": "6583742f2dfac8a55c677ab7",
+    "quantity": 5
+}
+
+### Find Newest Order - OK - GET
+GET http://localhost:8080/api/situations/transactions/find-newest-order?customerId=658370222a1994278d48a49b
+
+### Buy Order - OK - POST
+POST http://localhost:8080/api/situations/transactions/buy-order
+Content-Type: application/json
+
+{
+    "customerId": "658370222a1994278d48a49b"
+}
+
+### Add product - OK - POST
+POST http://localhost:8080/api/situations/transactions/add-product
+Content-Type: application/json
+
+{
+    "customerId": "658370222a1994278d48a49b",
     "productId": "658373829cab0b4a6b73647d",
-    "quantity": 50
+    "quantity": 5
+}
+
+### Cancel Order - OK - PUT
+PUT http://localhost:8080/api/situations/transactions/cancel-order
+Content-Type: application/json
+
+{
+    "orderId": "659c7856edb574eb42edb76e"
 }

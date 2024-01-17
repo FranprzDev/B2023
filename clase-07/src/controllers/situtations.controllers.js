@@ -5,6 +5,7 @@ const Staff = require('../models/Staff')
 const Customer = require('../models/Customer')
 const Product = require('../models/Product')
 const Order = require('../models/Order')
+const mongoose = require('mongoose')
 
 /**
  * Relaciones entre dos modelos, en este ejemplo relacionaremos libros y autores
@@ -47,7 +48,7 @@ const getBooks = async (req, res) => {
 
     const response = await query.exec()
 
-    res.json(response.authorId)
+    res.json(response)
 }
 
 const createStaff = async (req, res) => {
@@ -141,6 +142,109 @@ const prepareOrder = async (req, res) => {
     res.json(order)
 }
 
+const findNewestOrder = async (req, res) => {
+    const { customerId } = req.query
+
+    const customer =
+        await Order.findOne({ customer: customerId, status: 'PREPARING' })
+            .populate('products.product')
+            .populate('customer')
+
+    res.json(customer)
+}
+
+const buyOrder = async (req, res) => {
+    const { customerId } = req.body
+    const session = await mongoose.startSession();
+    session.startTransaction()
+    try {
+        const order =
+            await Order.findOne({ customer: customerId, status: 'PREPARING' })
+                .populate('products.product')
+                .session(session)
+
+        // recorro todo mi listado de productos en mi compra
+        for (const item of order.products) {
+            // tomo cada producto
+            const product = item.product;
+            // tomo la cantidad a comprar
+            const quantityPurchased = item.quantity;
+
+            if (product.stock < quantityPurchased) {
+                throw new Error(`No hay suficiente stock para ${product.name}`);
+            }
+
+            // Actualizar el stock del producto
+            product.stock -= quantityPurchased;
+            await product.save();
+            console.log("Product saved")
+        }
+
+        order.status = "BUYED"
+        await order.save()
+
+        if (req.query.cancel === "YES") throw new Error("Cancel transaction")
+
+        await session.commitTransaction();
+        session.endSession();
+
+        res.json(order)
+    } catch (error) {
+        console.log(error)
+        await session.abortTransaction()
+        session.endSession()
+
+        res.json({ message: error.message })
+    }
+}
+
+const addProduct = async (req, res) => {
+    const { customerId, productId, quantity } = req.body
+
+    const order = await Order.findOne({ customer: customerId, status: 'PREPARING' })
+
+    order.products.push({ product: productId, quantity })
+
+    await order.save()
+
+    res.json(order)
+}
+
+const cancelOrder = async (req, res) => {
+    const { orderId } = req.body
+
+    const session = await mongoose.startSession();
+    session.startTransaction()
+
+    try {
+        const order = await Order.findById(orderId).populate("products.product").session(session)
+
+        for (const item of order.products) {
+            // tomo cada producto
+            const product = item.product;
+            // tomo la cantidad a comprar
+            const quantityPurchased = item.quantity;
+
+            // Actualizar el stock del producto
+            product.stock += quantityPurchased;
+            await product.save();
+        }
+
+        order.status = "FINISHED"
+        await order.save()
+
+        await session.commitTransaction();
+        session.endSession();
+
+        res.json(order)
+    } catch (error) {
+        await session.abortTransaction()
+        session.endSession()
+
+        res.json({ message: error.message })
+    }
+}
+
 module.exports = {
     createAuthor,
     createBook,
@@ -152,5 +256,9 @@ module.exports = {
     getProducts,
     makeProductAvailable,
     patchProduct,
-    prepareOrder
+    prepareOrder,
+    findNewestOrder,
+    buyOrder,
+    addProduct,
+    cancelOrder
 }

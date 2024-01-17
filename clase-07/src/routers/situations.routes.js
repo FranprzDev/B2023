@@ -1,7 +1,7 @@
 
 
 const {
-    createAuthor, createBook, getBooks, createStaff, getStaff, createCustomer, createProduct, getProducts, makeProductAvailable, patchProduct, prepareOrder
+    createAuthor, createBook, getBooks, createStaff, getStaff, createCustomer, createProduct, getProducts, makeProductAvailable, patchProduct, prepareOrder, findNewestOrder, buyOrder, addProduct, cancelOrder
 } = require('../controllers/situtations.controllers')
 
 const situationRouter = require('express').Router()
@@ -22,7 +22,9 @@ situationRouter.get('/transactions/find-products', getProducts)
 situationRouter.patch('/transactions/make-product-available', makeProductAvailable)
 situationRouter.patch('/transactions/patch-product', patchProduct)
 situationRouter.post('/transactions/prepare-order', prepareOrder)
-situationRouter.post('/transactions/update-order', (req, res) => { })
-situationRouter.post('/transactions/make-order', (req, res) => { })
+situationRouter.get('/transactions/find-newest-order', findNewestOrder)
+situationRouter.post('/transactions/buy-order', buyOrder)
+situationRouter.put('/transactions/cancel-order', cancelOrder)
+situationRouter.post('/transactions/add-product', addProduct)
 
 module.exports = situationRouter

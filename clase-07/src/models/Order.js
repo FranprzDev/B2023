@@ -24,7 +24,8 @@ const orderSchema = new Schema({
     },
     status: {
         type: String,
-        enum: ["PREPARING", "BUYED", "DISPATCHED", "SHIPPED", "FINISHED"]
+        enum: ["PREPARING", "BUYED", "DISPATCHED", "SHIPPED", "FINISHED"],
+        default: "PREPARING"
     }
 })
 

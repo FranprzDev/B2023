@@ -3,8 +3,8 @@ POST http://localhost:8080/api/situations/populate/create-author
 Content-Type: application/json
 
 {
-    "firstName": "Julio",
-    "lastName": "Cortazar"
+    "firstName": "Juan Jose",
+    "lastName": "Puente"
 }
 
 ### Create Books - POST
@@ -12,9 +12,9 @@ POST http://localhost:8080/api/situations/populate/create-book
 Content-Type: application/json
 
 {
-    "name": "Harry Potter La Camara de los Secretos",
-    "description": "Libro donde Harry mata un basilisco",
-    "authorId": "65836995e1c3be79ee0a446d"
+    "name": "Docker - Contenedores e instancias",
+    "description": "Libro sobre contenedores de docker",
+    "authorId": "658ca210820239cdd712cc9f"
 }
 
 ### Find books - All - GET
@@ -24,7 +24,7 @@ GET http://localhost:8080/api/situations/populate/find-books
 GET http://localhost:8080/api/situations/populate/find-books?withAuthorData=YES
 
 ### Find books - By Book Id - GET
-GET http://localhost:8080/api/situations/populate/find-books?bookId=65836a01e1c3be79ee0a4473
+GET http://localhost:8080/api/situations/populate/find-books?bookId=658ca294820239cdd712cca1
 
 ### Find books - By Book Id - AuthorData - GET
 GET http://localhost:8080/api/situations/populate/find-books?bookId=65836a01e1c3be79ee0a4473&withAuthorData=YES
