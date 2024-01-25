@@ -1,0 +1,31 @@
+### GET ALL TABLES
+
+GET http://localhost:3000/api/reservations
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Impvc2VzY2FwIiwicm9sZSI6IkNVU1RPTUVSIiwiaWF0IjoxNzA2MTQwNzA2LCJleHAiOjE3MDYxNDQzMDZ9.FtnZSHYS2YoCUjoI1BaaMnDS6NV0XNsJUY3xZ55YYhA
+
+### CREATE RESERVATION
+
+POST http://localhost:3000/api/reservations
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Impvc2VzY2FwIiwicm9sZSI6IkNVU1RPTUVSIiwiaWF0IjoxNzA2MTQwNzA2LCJleHAiOjE3MDYxNDQzMDZ9.FtnZSHYS2YoCUjoI1BaaMnDS6NV0XNsJUY3xZ55YYhA
+
+{
+    "hostId": 2,
+    "tableId": 19,
+    "quantity": 2,
+    "date": "2023-09-18"
+}
+
+### CHANGE TABLE
+
+PUT http://localhost:3000/api/reservations
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Impvc2VzY2FwIiwicm9sZSI6IkNVU1RPTUVSIiwiaWF0IjoxNzA2MTQwNzA2LCJleHAiOjE3MDYxNDQzMDZ9.FtnZSHYS2YoCUjoI1BaaMnDS6NV0XNsJUY3xZ55YYhA
+
+{
+    "reservationId": 9,
+    "newTableId": 16,
+    "quantity": 2,
+    "date": "2023-09-30",
+    "fakeError": false
+}

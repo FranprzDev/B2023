@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": null,
-    "database": "clase-12-test",
+    "database": "clase-12",
     "host": "localhost",
     "dialect": "mysql"
   },
@@ -16,8 +16,8 @@
   "production": {
     "username": "root",
     "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "database": "clase-12-prod",
+    "host": "localhost",
     "dialect": "mysql"
   }
 }

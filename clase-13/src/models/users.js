@@ -3,7 +3,6 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  // Definicion de modelo a traves de clases
   class Users extends Model {
     /**
      * Helper method for defining associations.
@@ -15,42 +14,21 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Users.init({
-    firstname: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    lastname: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
     username: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false
     },
     password: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false
     },
-    dni: {
-      type: DataTypes.INTEGER,
+    role: {
+      type: DataTypes.TEXT,
       allowNull: false,
-      defaultValue: 0
-    },
-    age: {
-      type: DataTypes.INTEGER,
-      defaultValue: 18
-    },
-    money: {
-      type: DataTypes.DECIMAL,
-      allowNull: true
-    },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false
+      defaultValue: 'ADMIN'
     }
   }, {
     sequelize,
-    // ESTE ES EL NOMBRE DE MI MODELO
     modelName: 'Users',
   });
   return Users;

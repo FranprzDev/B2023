@@ -1,0 +1,33 @@
+### REGISTER
+
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
+
+{
+    "username": "josescap",
+    "password": "LaMasSegura789"
+}
+
+### LOGIN
+
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+    "username": "josescap",
+    "password": "LaMasSegura789"
+}
+
+### PUBLICA
+
+GET http://localhost:3000/api/simple/publica
+
+### PRIVADA
+
+GET http://localhost:3000/api/simple/privada
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Impvc2VzY2FwIiwicm9sZSI6IkNVU1RPTUVSIiwiaWF0IjoxNzA2MTM5NzgxLCJleHAiOjE3MDYxNDMzODF9.GokOKcax6GwXRbnWZ4susUTN_bn4NL0929oyJUqnk5s
+
+### PRIVADA
+
+GET http://localhost:3000/api/simple/privada-para-admin
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Impvc2VzY2FwIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzA2MTQwMDk1LCJleHAiOjE3MDYxNDM2OTV9.BlZfEPhyXu2PyY0L2H72x3pG0NHZXPd1EyQG8ota_YY

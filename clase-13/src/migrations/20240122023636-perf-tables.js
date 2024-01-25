@@ -10,15 +10,14 @@ module.exports = {
    * @return {Promise<void>}
    */
   async up(queryInterface, Sequelize) {
-    await queryInterface.addColumn('Tasks', 'userId', {
+    await queryInterface.removeColumn('Tables', 'number')
+    await queryInterface.changeColumn('Tables', 'quantity', {
       type: DataTypes.INTEGER,
-      allowNull: true,
-      references: {
-        model: 'Users',
-        key: 'id'
-      },
-      onUpdate: 'CASCADE',
-      onDelete: 'CASCADE'
+      allowNull: false
+    })
+    await queryInterface.changeColumn('Tables', 'place', {
+      type: DataTypes.TEXT,
+      allowNull: false
     })
   },
 
@@ -28,6 +27,8 @@ module.exports = {
    * @return {Promise<void>}
    */
   async down(queryInterface, Sequelize) {
-    await queryInterface.removeColumn('Tasks', 'userId')
+    await queryInterface.addColumn('Tables', 'number', DataTypes.INTEGER)
+    await queryInterface.changeColumn('Tables', 'quantity', DataTypes.INTEGER)
+    await queryInterface.changeColumn('Tables', 'place', DataTypes.STRING)
   }
 };

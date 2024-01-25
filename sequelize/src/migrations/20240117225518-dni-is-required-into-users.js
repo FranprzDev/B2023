@@ -1,7 +1,5 @@
 'use strict';
 
-const { DataTypes } = require('sequelize');
-
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   /**
@@ -10,10 +8,15 @@ module.exports = {
    * @return {Promise<void>}
    */
   async up(queryInterface, Sequelize) {
-    await queryInterface.addColumn('Tasks', 'status', {
-      type: DataTypes.BOOLEAN,
+    await queryInterface.changeColumn('Users', 'dni', {
+      type: Sequelize.INTEGER,
       allowNull: false,
-      defaultValue: true
+      defaultValue: 0
+    })
+    await queryInterface.changeColumn('Users', 'age', {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      defaultValue: 0
     })
   },
 
@@ -23,6 +26,9 @@ module.exports = {
    * @return {Promise<void>}
    */
   async down(queryInterface, Sequelize) {
-    await queryInterface.removeColumn('Tasks', 'status')
+    await queryInterface.changeColumn('Users', 'dni', {
+      type: Sequelize.INTEGER,
+      allowNull: true
+    })
   }
 };

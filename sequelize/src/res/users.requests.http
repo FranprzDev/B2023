@@ -1,0 +1,14 @@
+POST http://localhost:3000/api/users
+Content-Type: application/json
+
+{
+    "firstname": "request",
+    "lastname": "request",
+    "username": "request",
+    "password": "request pass",
+    "dni": 12547896,
+    "email": "mail@mail.com"
+}
+
+### DELETE BY ID
+DELETE http://localhost:3000/api/users/44

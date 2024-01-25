@@ -1,0 +1,14 @@
+### GET ALL TABLES
+GET http://localhost:3000/api/hosts
+
+### CREATE TABLE
+
+POST http://localhost:3000/api/hosts
+Content-Type: application/json
+
+{
+    "fullname": "Fulanito Leon 4",
+    "age": 31,
+    "phoneNumber": "+543813669988",
+    "email": "carlos@mail-falso.com"
+}
