@@ -52,7 +52,7 @@ Content-Type: application/json
 {
     "customerId": "658370222a1994278d48a49b"
 }
-
+s
 ### Add product - OK - POST
 POST http://localhost:8080/api/situations/transactions/add-product
 Content-Type: application/json

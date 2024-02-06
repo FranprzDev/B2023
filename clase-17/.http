@@ -1,0 +1,17 @@
+curl "http://localhost:3000/create-order" ^
+  -H "Accept: */*" ^
+  -H "Accept-Language: en-US,en" ^
+  -H "Connection: keep-alive" ^
+  -H "Content-Type: text/plain;charset=UTF-8" ^
+  -H "Origin: http://localhost:3000" ^
+  -H "Referer: http://localhost:3000/" ^
+  -H "Sec-Fetch-Dest: empty" ^
+  -H "Sec-Fetch-Mode: cors" ^
+  -H "Sec-Fetch-Site: same-origin" ^
+  -H "Sec-GPC: 1" ^
+  -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36" ^
+  -H "sec-ch-ua: ^\^"Not A(Brand^\^";v=^\^"99^\^", ^\^"Brave^\^";v=^\^"121^\^", ^\^"Chromium^\^";v=^\^"121^\^"" ^
+  -H "sec-ch-ua-mobile: ?0" ^
+  -H "sec-ch-ua-platform: ^\^"Windows^\^"" ^
+  --data-raw "^{^\^"precio^\^":15000^}" ^
+  --compressed
