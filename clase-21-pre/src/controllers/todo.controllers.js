@@ -40,17 +40,30 @@ const getById = async (req, res) => {
         res.json({ data: null, error: 'Something went wrong!' })
     }
 }
-// const updateById = (req, res) => {
-//     // TODO: Completar para la tarea
-// }
-// const deleteById = (req, res) => {
-//     // TODO: Completar para la tarea
-// }
+const deleteById = async (req, res) => {
+    const { id } = req.params
+    try {
+        const todo = await db.Todos.findByPk(id)
+
+        if (!todo) {
+            res.status(404)
+            res.json({ data: null, error: `Todo with id ${id} not exists` })
+            return undefined
+        }
+
+        await todo.destroy()
+
+        res.status(204)
+        res.send()
+    } catch (error) {
+        res.status(500)
+        res.json({ data: null, error: 'Something went wrong!' })
+    }
+}
 
 module.exports = {
     getAllTodo,
     createTodo,
     getById,
-    // updateById,
-    // deleteById
+    deleteById
 }

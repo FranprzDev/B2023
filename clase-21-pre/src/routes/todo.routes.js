@@ -1,4 +1,4 @@
-const { getAllTodo, createTodo, getById } = require('../controllers/todo.controllers')
+const { getAllTodo, createTodo, getById, deleteById } = require('../controllers/todo.controllers')
 const { beforeTodoCreation, validateRequest, beforeFindByPk } = require('../middlewares/todo.middlewares')
 
 const todoRouter = require('express').Router()
@@ -6,7 +6,6 @@ const todoRouter = require('express').Router()
 todoRouter.get('/', getAllTodo)
 todoRouter.post('/', beforeTodoCreation, validateRequest, createTodo)
 todoRouter.get('/:id', beforeFindByPk, validateRequest, getById)
-// todoRouter.update('/:id', (req, res) => {})
-// todoRouter.delete('/:id', (req, res) => {})
+todoRouter.delete('/:id', beforeFindByPk, validateRequest, deleteById)
 
 module.exports = todoRouter

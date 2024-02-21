@@ -63,4 +63,14 @@ GET http://localhost:3000/api/todos/hola
 GET http://localhost:3000/api/todos/-1
 
 ### GET - OK - Find Todo By Id
-GET http://localhost:3000/api/todos/3
+GET http://localhost:3000/api/todos/4
+
+### DELETE /api/todos/:id --------------------------
+### DELETE - ERROR - Delete Todo By Id
+DELETE http://localhost:3000/api/todos/hola
+
+### DELETE - ERROR - Delete Todo By Id
+DELETE http://localhost:3000/api/todos/-1
+
+### DELETE - OK - Delete Todo By Id
+DELETE http://localhost:3000/api/todos/4

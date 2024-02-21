@@ -9,7 +9,8 @@
     "test:run": "dotenvx run --env-file=.env.test -- node index.js",
     "test": "dotenvx run --env-file=.env.test -- jest",
     "test:watch": "dotenvx run --env-file=.env.test -- jest --watch",
-    "test:coverage": "dotenvx run --env-file=.env.test -- jest --coverage"
+    "test:coverage": "dotenvx run --env-file=.env.test -- jest --coverage",
+    "test:watch-coverage": "dotenvx run --env-file=.env.test -- jest --coverage --watch"
   },
   "keywords": [],
   "author": "",
