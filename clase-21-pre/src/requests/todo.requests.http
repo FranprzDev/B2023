@@ -1,0 +1,66 @@
+### GET /api/todos ------------------------------
+### Get all todos
+GET http://localhost:3000/api/todos
+
+### POST /api/todos -----------------------------
+### POST - ERROR - Create Todo with no fields
+POST http://localhost:3000/api/todos
+Content-Type: application/json
+
+{
+}
+
+### POST- ERROR - Create Todo with wrong type for status
+POST http://localhost:3000/api/todos
+Content-Type: application/json
+
+{
+    "name": "Wrong todo",
+    "status": 15
+}
+
+### POST - ERROR - Create Todo with wrong type for description
+POST http://localhost:3000/api/todos
+Content-Type: application/json
+
+{
+    "name": "Wrong todo",
+    "description": null
+}
+
+### POST - OK - Create Todo with just name
+POST http://localhost:3000/api/todos
+Content-Type: application/json
+
+{
+    "name": "Testing todo - minimun data"
+}
+
+### POST - OK - Create Todo with name and predefined status
+POST http://localhost:3000/api/todos
+Content-Type: application/json
+
+{
+    "name": "Testing todo",
+    "status": true
+}
+
+### POST - OK - Create Todo with all fields
+POST http://localhost:3000/api/todos
+Content-Type: application/json
+
+{
+    "name": "Testing todo",
+    "status": false,
+    "description": "A simple description"
+}
+
+### GET /api/todos/:id --------------------------
+### GET - ERROR - Find Todo By Id
+GET http://localhost:3000/api/todos/hola
+
+### GET - ERROR - Find Todo By Id
+GET http://localhost:3000/api/todos/-1
+
+### GET - OK - Find Todo By Id
+GET http://localhost:3000/api/todos/3
