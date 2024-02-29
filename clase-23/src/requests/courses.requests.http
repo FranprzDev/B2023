@@ -1,0 +1,28 @@
+### [POST] - [OK] - Create course
+POST http://localhost:3000/api/courses/create
+Content-Type: application/json
+
+{
+    "name": "B2024 - [05]",
+    "schedule": 2,
+    "minimunQuote": 15,
+    "maximunQuote": 25
+}
+
+### [PATCH] - [OK] - Edit course
+PATCH http://localhost:3000/api/courses/edit
+Content-Type: application/json
+
+{
+    "id": 1,
+    "name": "B2023 - [01]"
+}
+
+### [GET] - [OK] - Get course by ID
+GET http://localhost:3000/api/courses/list-one/1
+
+### [GET] - [OK] - Get all courses
+GET http://localhost:3000/api/courses/list
+
+### [GET] - [OK] - Get filtered courses by name
+GET http://localhost:3000/api/courses/list?orderBy=name&order=DESC
